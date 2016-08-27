@@ -225,9 +225,18 @@ end)))
 batwidget = lain.widgets.bat({
     settings = function()
         bat_header = " Bat "
-        bat_p      = bat_now.perc .. " "
-        if bat_now.ac_status == 1 then
-            bat_p = bat_p .. "Plugged "
+        bat_p      = bat_now.perc .. "%"
+        --if bat_now.ac_status == 1 then
+        --    bat_p = bat_p .. "Plugged "
+        --end
+        bat_p      = bat_p .. " " .. bat_now.status 
+        if bat_now.status ~= "Full" then
+            bat_p = bat_p .. " " .. bat_now.time
+            if bat_now.status == "Charging" then
+                bat_p = bat_p .. " util charged"
+            else
+                bat_p = bat_p .. " remaning"
+            end
         end
         widget:set_markup(markup(blue, bat_header) .. bat_p)
     end,
