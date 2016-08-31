@@ -240,8 +240,8 @@ batwidget = lain.widgets.bat({
         end
         widget:set_markup(markup(blue, bat_header) .. bat_p)
     end,
-    ac = "ACAD",
-    batteries = {"BAT1"}
+    ac = "AC",
+    batteries = {"BAT0"}
 })
 
 -- ALSA volume bar
