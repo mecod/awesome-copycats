@@ -222,27 +222,27 @@ function ()
 end)))
 
 -- Battery
-batwidget = lain.widgets.bat({
-    settings = function()
-        bat_header = " Bat "
-        bat_p      = bat_now.perc .. "%"
-        --if bat_now.ac_status == 1 then
-        --    bat_p = bat_p .. "Plugged "
-        --end
-        bat_p      = bat_p .. " " .. bat_now.status 
-        if bat_now.status ~= "Full" then
-            bat_p = bat_p .. " " .. bat_now.time
-            if bat_now.status == "Charging" then
-                bat_p = bat_p .. " util charged"
-            else
-                bat_p = bat_p .. " remaning"
-            end
-        end
-        widget:set_markup(markup(blue, bat_header) .. bat_p)
-    end,
-    ac = "ACAD",
-    batteries = {"BAT1"}
-})
+-- batwidget = lain.widgets.bat({
+--     settings = function()
+--         bat_header = " Bat "
+--         bat_p      = bat_now.perc .. "%"
+--         --if bat_now.ac_status == 1 then
+--         --    bat_p = bat_p .. "Plugged "
+--         --end
+--         bat_p      = bat_p .. " " .. bat_now.status 
+--         if bat_now.status ~= "Full" then
+--             bat_p = bat_p .. " " .. bat_now.time
+--             if bat_now.status == "Charging" then
+--                 bat_p = bat_p .. " util charged"
+--             else
+--                 bat_p = bat_p .. " remaning"
+--             end
+--         end
+--         widget:set_markup(markup(blue, bat_header) .. bat_p)
+--     end,
+--     ac = "ACAD",
+--     batteries = {"BAT1"}
+-- })
 
 -- ALSA volume bar
 myvolumebar = lain.widgets.alsabar({
@@ -403,7 +403,7 @@ for s = 1, screen.count() do
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
     --right_layout:add(mailwidget)
-    right_layout:add(batwidget)
+    -- right_layout:add(batwidget)
     right_layout:add(spr_right)
     right_layout:add(prev_icon)
     right_layout:add(next_icon)
